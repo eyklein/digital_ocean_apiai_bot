@@ -1,0 +1,81 @@
+response,category
+maybe someone cleaned it up,cleaned
+its possible someone swept it up,cleaned
+it was swept up,cleaned
+it was cleaned up,cleaned
+someone cleaned it up,cleaned
+someone came and cleaned them up,cleaned
+it was mopped up,cleaned
+animals,animals
+animals drank it ,animals
+some dogs eat it,animals
+some cats drank it,animals
+deer had a drink,animals
+animals came,animals
+it was drank up,animals
+boots,wheel_boots
+shoes,wheel_boots
+people splashed them away,wheel_boots
+boots pushed them away,wheel_boots
+wheels came by and splashed them away,wheel_boots
+shoes made smaller puddles,wheel_boots
+wheels pushed the puddles into smaller puddles,wheel_boots
+feet splashed them away,wheel_boots
+ground,ground
+it went into the street,ground
+it sank down into the ground,ground
+it went into the little holes in the concrete,ground
+it was absorbed into the ground,ground
+the earth soaked it up,ground
+it went into the ground,ground
+it went into the cracks in the street,ground
+sky,sky
+it went into the sky,sky
+it went up into the sky,sky
+clouds,clouds
+it went up into the clouds,clouds
+it went into the clouds,clouds
+it became clouds,clouds
+the water became clouds,clouds
+the water turned into clouds,clouds
+it dried up,dried
+they dried up,dried
+the water dried up,dried
+the puddles dried up,dried
+disappeared,disappeared
+the water went away,disappeared
+the puddles disappeared,disappeared
+the water disappeared,disappeared
+it disappeared,disappeared
+it evaporated,evaporation
+the water evaporated,evaporation
+the water evaporate,evaporation
+evaporation,evaporation
+air,air
+it went up into the air,air
+it went into the air,air
+it floating into the air,air
+it floated off,air
+wind,wind
+the wind took it away,wind
+the wind sucked up ,wind
+the wind blew it away,wind
+maybe the wind takes it up,wind
+the wind picked it up,wind
+sun,sun
+the sun sucked it up,sun
+the suck pulled it up ,sun
+it was pulled up by the sun like a magnet,sun
+the sun burnt it up,sun
+heat,heat
+it was heated up,heat
+the heat made it go away,heat
+the heat made it disappear,heat
+came down as rain,rain
+then it rained,rain
+then it came down as rain,rain
+it went somewhere,ambiguous
+I don't know,idk
+I think,sentiment 
+tell,garbage
+yes water stay,garbage

@@ -11,20 +11,8 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
-
 # Flask app should start in global layout
 app = Flask(__name__)
-
-
-import classify
-
-classify.train_modle()
-
-
-
-
-
-
 
 
 @app.route('/webhook', methods=['POST'])
@@ -38,7 +26,11 @@ def webhook():
     res = processRequest(req)
 
     res = json.dumps(res, indent=4)
-   
+    # print(res)
+
+
+
+
     # convert speach onbject (json fromat) to api.ai format
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
@@ -46,45 +38,25 @@ def webhook():
 
 
 def processRequest(req):
-    [action, decition, query, sessionId] = getQuery(req)
-
-    session = classify.getSession(sessionId)
-    if(action==""):
-        intents = classify.getIntents(query)
-        responce = session.nextNode(intents)
-    else:
-
-        responce = session.forceNode(action, decition)
-
-    
-
-    # print("intents")
-    # print(str(intents))
-
-    # text = ''
-    
-    # for intent in intents:
-    #     text = "{0}, {1}".format(text, str(intent))
-
-
-
-    res = makeWebhookResult(responce)
-    print(res)
+    query = getQuery(req)
+    # if req.get("result").get("action") != "yahooWeatherForecast":
+    #     return {}
+    # baseurl = "https://query.yahooapis.com/v1/public/yql?"
+    # yql_query = makeYqlQuery(req)
+    # if yql_query is None:
+    #     return {}
+    # yql_url = baseurl + urllib.parse.urlencode({'q': yql_query}) + "&format=json"
+    # result = urllib.request.urlopen(yql_url).read()
+    # data = json.loads(result)
+    res = makeWebhookResult('<speak>Step 1, take a deep breath. <break time="2s" />Step 2, exhale.</speak>')
     return res
 
 
 def getQuery(req):
-    
-    sessionId = req.get("sessionId")
     result = req.get("result")
-    action = result.get("action")
-    desition =[]
-    for key in result.get("parameters"):
-        desition.append(result.get("parameters").get(key))
     query = result.get("resolvedQuery")
-    
 
-    return [action, desition, query, sessionId]
+    return query
 
 
 def makeWebhookResult(data):
@@ -95,16 +67,8 @@ def makeWebhookResult(data):
     print(speech)
 
     return {
-        "speech": speech,# how do i add noResponse Items
+        "speech": speech,
         "displayText": speech,
-
-        # "messages":[
-        #     {
-        #       "type": 0,
-        #       "speech": "say what?"
-        #     }
-        #   ],
-
         # "data": data,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
@@ -112,11 +76,15 @@ def makeWebhookResult(data):
 
 
 if __name__ == '__main__':
-    # port = int(os.getenv('PORT', 5000))
+    port = int(os.getenv('PORT', 5000))
 
-    # print("Starting app on port %d" % port)
+    print("Starting app on port %d" % port)
 
     from OpenSSL import SSL
     context = SSL.Context(SSL.SSLv23_METHOD)
+    # context.use_privatekey_file('my-key.pem')
+    # context.use_certificate_file('my-cert.pem')
+
+    # app.run(debug=False, port=port, host='0.0.0.0' , ssl_context=context)
     context = ('my-cert.pem', 'my-key.pem')
     app.run(host='0.0.0.0', port=5000, ssl_context=context, threaded=True, debug=True)
