@@ -1,0 +1,396 @@
+[{
+      "classification": "welcome",
+      "input_context": "base",
+      "output_context": "base, yesno",
+      "response": [{
+         "text": "hi my name is Cynthia %1 I have been curious about something. %1 Can I ask you a question?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "base",
+         "no_force": "goodbye",
+      }, {
+         "text": "hi my name is Cynthia %1 Can I ask you a question?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "base",
+         "no_force": "goodbye",
+      }]
+   }, {
+      "classification": "base",
+      "input_context": "base",
+      "output_context": "main, core",
+      "yes_force": "",
+      "no_force": "",
+      "response": [{
+         "text": "The other day before school %.5 it rained  %.5 but when I was coming home all the puddles were gone. %.5 Where do you think they went?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   }, {
+      "classification": "cleaned",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "does that mean that if there where no peaple %.5  then the puddles just stay there?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "someone could come and clean up the puddles %1  I know that when a spill is mopped up the floor is still a little wet left on the floor %.5 where would that last bit of water go?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "do all the puddles get cleaned up by someone?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   }, {
+      "classification": "animals",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "what if there where no animals around %.5  what would happen if there where no animals to drink the puddles",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "animals could drink a lot of the water but the last little bit at the bottom of the puddle would be impossible to drink off the ground %.5 where does the last bit of water go?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "do animals drink all the puddles?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   }, {
+      "classification": "wheel_boots",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "what if there where no peaple around %.5 what would happen if there where no boots or cars to push the puddles aside?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "someone with boots could come by and splash the puddles into smaller puddles %.5  but then where do those smaller puddles go? ",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "ground",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "where does the water go after it sinks into the ground?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "the rain from the puddles comes from the sky %.5  how does water get back into the sky %.2 for the next time it rains?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "sky",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "how does the water get up into the sky?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "what makes the water go up into the sky?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "clouds",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "how does the water get up into the clouds?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "what brings the water up into the clouds?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "dried-up",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "what do you meen by dried up?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "can you explain what it means that they dried up?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "say more about them drying up?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "disappeared",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "what do you meen by disappeared?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "can you explain what it means that they disapeared?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "what makes the puddles disapeare?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "evaporation",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "What do you meen by evaperation?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "how does evaperation work?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "how does evaperation take the water away?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "air",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "How does the air pick up the water?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "how does the water get into the air?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "wind",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "can you explain how the wind picks up the water and take it into the air?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "I don't fully understand %.7 water is heavy %.5 how does the wind pick up the water?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }, {
+         "text": "If there is no wind would the water just say there?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "sun",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "how does the sun suck up the water?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "heat",
+      "input_context": "core",
+      "output_context": "core,",
+      "response": [{
+         "text": "how does the heat pick up the water?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      },{
+         "text": "how does the heat make the water disapear?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "rain",
+      "input_context": "core",
+      "output_context": "core",
+      "response": [{
+         "text": "how does the water get into the sky to fall as rain",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "small",
+      "input_context": "core",
+      "output_context": "core",
+      "response": [{
+         "text": "can you say more about how the small pieces of water could start floating in the air?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      },{
+         "text": "Maybe small pieces of water are like rock. Like a rock can't go up into the air with wind but small pieces or rock dust could blow around. Is that what you ment?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "gravity",
+      "input_context": "core",
+      "output_context": "core",
+      "response": [{
+         "text": "how does the gravity allow the puddle to go up into the air?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "unknown",
+      "input_context": "core",
+      "output_context": "core",
+      "response": [{
+         "text": "say more about that?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      },{
+         "text": "can you say that again in difrent words?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      },{
+         "text": "what do you meen by that?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "probing",
+      "input_context": "core",
+      "output_context": "core",
+      "response": [{
+         "text": "can you say more about that?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      },{
+         "text": "how does that work?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      },{
+         "text": "how does that explain the puddles dissapearance?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      },{
+         "text": "can you explain how that works?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "idk",
+      "input_context": "core",
+      "output_context": "core",
+      "response": [{
+         "text": "maybe something moved it somewhere. Where could it have been moved to?",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   },{
+      "classification": "goodbye",
+      "input_context": "core",
+      "output_context": "core",
+      "response": [{
+         "text": "alright %.5 goodbye %.5 another time maybe",
+         "input_context": "",
+         "output_context": "",
+         "yes_force": "",
+         "no_force": "",
+      }]
+   }
+]

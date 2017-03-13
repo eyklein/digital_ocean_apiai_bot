@@ -10,10 +10,14 @@ import os
 from flask import Flask
 from flask import request
 from flask import make_response
+from flask_cors import CORS, cross_origin
+# cors allows cross origin requests
 
 
 # Flask app should start in global layout
 app = Flask(__name__)
+CORS(app)
+# cors allows cross origin requests
 
 
 import classify
@@ -22,18 +26,31 @@ classify.train_modle()
 
 
 
-
-
-
-
+@app.route("/getIdeas" , methods=['POST'])
+@cross_origin(supports_credentials=True)
+def getIdeas():
+    req = request.get_json(silent=True, force=True)
+    print("Request:")
+    print(json.dumps(req, indent=4))
+    res = processRequest(req)
+    print("1")
+    res = json.dumps(res, indent=4)
+    print("2")
+    # convert speach onbject (json fromat) to api.ai format
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    print("3")
+    return r
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
 
     req = request.get_json(silent=True, force=True)
 
-    # print("Request:")
-    # print(json.dumps(req, indent=4))
+    print("Request:")
+    print(json.dumps(req, indent=4))
+
+
 
     res = processRequest(req)
 

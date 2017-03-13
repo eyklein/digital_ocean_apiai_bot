@@ -1,0 +1,322 @@
+[
+ {
+   "phrase": "maybe someone cleaned it up",
+   "classification": "cleaned"
+ },
+ {
+   "phrase": "its possible someone swept it up",
+   "classification": "cleaned"
+ },
+ {
+   "phrase": "it was swept up",
+   "classification": "cleaned"
+ },
+ {
+   "phrase": "it was cleaned up",
+   "classification": "cleaned"
+ },
+ {
+   "phrase": "someone cleaned it up",
+   "classification": "cleaned"
+ },
+ {
+   "phrase": "someone came and cleaned them up",
+   "classification": "cleaned"
+ },
+ {
+   "phrase": "it was mopped up",
+   "classification": "cleaned"
+ },
+ {
+   "phrase": "animals",
+   "classification": "animals"
+ },
+ {
+   "phrase": "animals drank it ",
+   "classification": "animals"
+ },
+ {
+   "phrase": "some dogs eat it",
+   "classification": "animals"
+ },
+ {
+   "phrase": "some cats drank it",
+   "classification": "animals"
+ },
+ {
+   "phrase": "deer had a drink",
+   "classification": "animals"
+ },
+ {
+   "phrase": "animals came",
+   "classification": "animals"
+ },
+ {
+   "phrase": "it was drank up",
+   "classification": "animals"
+ },
+ {
+   "phrase": "boots",
+   "classification": "wheel_boots"
+ },
+ {
+   "phrase": "shoes",
+   "classification": "wheel_boots"
+ },
+ {
+   "phrase": "people splashed them away",
+   "classification": "wheel_boots"
+ },
+ {
+   "phrase": "boots pushed them away",
+   "classification": "wheel_boots"
+ },
+ {
+   "phrase": "wheels came by and splashed them away",
+   "classification": "wheel_boots"
+ },
+ {
+   "phrase": "shoes made smaller puddles",
+   "classification": "wheel_boots"
+ },
+ {
+   "phrase": "wheels pushed the puddles into smaller puddles",
+   "classification": "wheel_boots"
+ },
+ {
+   "phrase": "feet splashed them away",
+   "classification": "wheel_boots"
+ },
+ {
+   "phrase": "ground",
+   "classification": "ground"
+ },
+ {
+   "phrase": "it went into the street",
+   "classification": "ground"
+ },
+ {
+   "phrase": "it sank down into the ground",
+   "classification": "ground"
+ },
+ {
+   "phrase": "it went into the little holes in the concrete",
+   "classification": "ground"
+ },
+ {
+   "phrase": "it was absorbed into the ground",
+   "classification": "ground"
+ },
+ {
+   "phrase": "the earth soaked it up",
+   "classification": "ground"
+ },
+ {
+   "phrase": "it went into the ground",
+   "classification": "ground"
+ },
+ {
+   "phrase": "it went into the cracks in the street",
+   "classification": "ground"
+ },
+ {
+   "phrase": "sky",
+   "classification": "sky"
+ },
+ {
+   "phrase": "it went into the sky",
+   "classification": "sky"
+ },
+ {
+   "phrase": "it went up into the sky",
+   "classification": "sky"
+ },
+ {
+   "phrase": "clouds",
+   "classification": "clouds"
+ },
+ {
+   "phrase": "it went up into the clouds",
+   "classification": "clouds"
+ },
+ {
+   "phrase": "it went into the clouds",
+   "classification": "clouds"
+ },
+ {
+   "phrase": "it became clouds",
+   "classification": "clouds"
+ },
+ {
+   "phrase": "the water became clouds",
+   "classification": "clouds"
+ },
+ {
+   "phrase": "the water turned into clouds",
+   "classification": "clouds"
+ },
+ {
+   "phrase": "it dried up",
+   "classification": "dried"
+ },
+ {
+   "phrase": "they dried up",
+   "classification": "dried"
+ },
+ {
+   "phrase": "the water dried up",
+   "classification": "dried"
+ },
+ {
+   "phrase": "the puddles dried up",
+   "classification": "dried"
+ },
+ {
+   "phrase": "disappeared",
+   "classification": "disappeared"
+ },
+ {
+   "phrase": "the water went away",
+   "classification": "disappeared"
+ },
+ {
+   "phrase": "the puddles disappeared",
+   "classification": "disappeared"
+ },
+ {
+   "phrase": "the water disappeared",
+   "classification": "disappeared"
+ },
+ {
+   "phrase": "it disappeared",
+   "classification": "disappeared"
+ },
+ {
+   "phrase": "it evaporated",
+   "classification": "evaporation"
+ },
+ {
+   "phrase": "the water evaporated",
+   "classification": "evaporation"
+ },
+ {
+   "phrase": "the water evaporate",
+   "classification": "evaporation"
+ },
+ {
+   "phrase": "evaporation",
+   "classification": "evaporation"
+ },
+ {
+   "phrase": "air",
+   "classification": "air"
+ },
+ {
+   "phrase": "it went up into the air",
+   "classification": "air"
+ },
+ {
+   "phrase": "it went into the air",
+   "classification": "air"
+ },
+ {
+   "phrase": "it floating into the air",
+   "classification": "air"
+ },
+ {
+   "phrase": "it floated off",
+   "classification": "air"
+ },
+ {
+   "phrase": "wind",
+   "classification": "wind"
+ },
+ {
+   "phrase": "the wind took it away",
+   "classification": "wind"
+ },
+ {
+   "phrase": "the wind sucked up ",
+   "classification": "wind"
+ },
+ {
+   "phrase": "the wind blew it away",
+   "classification": "wind"
+ },
+ {
+   "phrase": "maybe the wind takes it up",
+   "classification": "wind"
+ },
+ {
+   "phrase": "the wind picked it up",
+   "classification": "wind"
+ },
+ {
+   "phrase": "sun",
+   "classification": "sun"
+ },
+ {
+   "phrase": "the sun sucked it up",
+   "classification": "sun"
+ },
+ {
+   "phrase": "the suck pulled it up ",
+   "classification": "sun"
+ },
+ {
+   "phrase": "it was pulled up by the sun like a magnet",
+   "classification": "sun"
+ },
+ {
+   "phrase": "the sun burnt it up",
+   "classification": "sun"
+ },
+ {
+   "phrase": "heat",
+   "classification": "heat"
+ },
+ {
+   "phrase": "it was heated up",
+   "classification": "heat"
+ },
+ {
+   "phrase": "the heat made it go away",
+   "classification": "heat"
+ },
+ {
+   "phrase": "the heat made it disappear",
+   "classification": "heat"
+ },
+ {
+   "phrase": "came down as rain",
+   "classification": "rain"
+ },
+ {
+   "phrase": "then it rained",
+   "classification": "rain"
+ },
+ {
+   "phrase": "then it came down as rain",
+   "classification": "rain"
+ },
+ {
+   "phrase": "it went somewhere",
+   "classification": "ambiguous"
+ },
+ {
+   "phrase": "I don't know",
+   "classification": "idk"
+ },
+ {
+   "phrase": "I think",
+   "classification": "sentiment "
+ },
+ {
+   "phrase": "tell",
+   "classification": "garbage"
+ },
+ {
+   "phrase": "yes water stay",
+   "classification": "garbage"
+ }
+]

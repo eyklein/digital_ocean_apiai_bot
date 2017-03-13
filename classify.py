@@ -8,6 +8,8 @@ import sys
 import re
 import os
 
+import dataManagment as dm
+
 nlp = spacy.load('en')
 import spacy.parts_of_speech as pos_t
 
@@ -111,31 +113,36 @@ def getIntents(text):
 
         
     
-    # print(conseptsPresent)
-
+    # save learning data as JSON
     for i in range(len(info['response'])):
-        print("{0} : {1}".format(info['response'][i], info['category'][i]))
+        entry = dm.LearingEntry(info['category'], info['response'][i], info['response'][i])
+        updateLearingFile("Training_test/learning.json" , entry)
 
-    updateLearingFile("Training_test/learning.csv" , info)
+
+
+
+
+   
+    
     return(classifications)
 
 
 
-def read_training_file(filename):
+def read_training_file(fpath):
     catagories = Counter()
     likelihood =defaultdict(Counter)
     
+    training_data = dm.loadData(fpath)
     
-    csvFile = pd.read_csv(filename, low_memory=False, encoding='ISO-8859-1')
-    
-    for i in range(len(csvFile["response"])):
-        doc =nlp(csvFile["response"][i])
-        
-        catagories[csvFile["category"][i]] += 1
+    for entry in training_data:
+
+        doc =nlp(entry["phrase"])
+
+        catagories[entry["classification"]] += 1
         
         for word in doc:
             if notStopWord(word):
-                likelihood[csvFile["category"][i]][word.lemma_] +=1
+                likelihood[entry["classification"]][word.lemma_] +=1
     
     
     return (catagories, likelihood)
@@ -171,83 +178,13 @@ def classify_baysian(doc, priors, likelihood):
     
     return max_class[1]
 
-# def classify_baysian(line, priors, likelihood):
-#     min_prob = 1E-9
-#     doc = nlp(line)
-    
-#     max_class = (-1E6, '')
-#     for catagory in priors:
-        
-#         p=priors[catagory]
-#         n=float(sum(likelihood[catagory].values()))
-#         for token in doc:
-#             p = p * max(min_prob,likelihood[catagory][token.text] )/ n
-#         if p > max_class[0]:
-#             max_class=(p, catagory)
-    
-#     return max_class[1]
 
-def read_testing_file(filename):
-    csvFile = pd.read_csv(filename, low_memory=False, encoding='ISO-8859-1')
-    textClassification=[]
-    for i in range(len(csvFile["response"])):
-        textClassification.append([csvFile["response"][i], csvFile["category"][i]])
-    return textClassification 
+def updateLearingFile(fpath, entry):
 
+    currentData = dm.loadData(fpath)
+    currentData.append(entry.getJSON())
+    dm.saveData(fpath, currentData)
 
-def updateLearingFile(filename, addedClassification):
-    # I don't understand why this works but it does
-    # Create a Pandas dataframe from some data.
-    
-    
-    if not is_non_zero_file(filename):
-        # if file does not exsist or is empty
-        print("The file does not exsist or has no headers create new learing file")
-        csvFile = pd.DataFrame({'response' : [],
-                'category' : []})
-        
-    else: 
-        #load exsisting data
-        csvFile = pd.read_csv(filename, low_memory=False, encoding='ISO-8859-1')
- 
-
-    if not 'response' in csvFile:
-        print("there was no responce columb")
-        csvFile['response']="NONE"
-    if not 'category' in csvFile:
-        print("there was no category columb")
-        csvFile['category']="NONE"
-    
-    responses=csvFile["response"]
-    category=csvFile["category"]
-
-    
-    if not responses.empty:
-        #if list is not empty add after max else go to fist index
-        startingIndex = max(responses.index) + 1
-        
-    else:
-        #if list is empty
-        startingIndex = 1
-    
-    
-    for i in range(len(addedClassification['response'])):
-
-        responses.set_value(startingIndex+i,  addedClassification['response'][i])
-        category.set_value(startingIndex+i,  addedClassification['category'][i])
-        
-        
-    textClassification={'response' : csvFile["response"],
-          "category" : csvFile["category"]}
-
-
-
-    # print(textClassification)
-    df = pd.DataFrame(data=textClassification)
-
-    # Convert the dataframe to an XlsxWriter Excel object.
-    # df.to_excel(writer, sheet_name='Sheet1')
-    df.to_csv(filename, sep=',', encoding='utf-8')
 
 
 def is_non_zero_file(fpath):  
@@ -255,45 +192,30 @@ def is_non_zero_file(fpath):
 
 
 def train_modle():
-    
-    csvFile = pd.read_csv("Training_test/training.csv", low_memory=False, encoding='ISO-8859-1')
-    
-    
-    training_file = "Training_test/training.csv"
-    #learning file loaded each request
-    # learning_file = "Training_test/learning.csv"
+    training_file = "Training_test/training.json"
 
-    # testing_file = "Training_test/testing.csv"
     global catagories
     global likelihood
 
     (catagories, likelihood) = read_training_file(training_file)
-    load_responces("Training_test/responces.csv")
-
-    
-
-    # lines = read_testing_file(testing_file)
-    
-    # num_correct=0
-    
-    # for line in lines:
-    #     category_assigned = classify_baysian(line[0], catagories, likelihood)
-        
-    #     print(line[0], "  real: ", line[1], "  assigned: ", category_assigned)
-        
-    #     if category_assigned==line[1]:
-    #         num_correct += 1
-            
-    # print("Classified %d correct out of %d for an accuracy of %f"%(num_correct, len(lines),float(num_correct)/len(lines)))
+    load_responces("Training_test/nodes.json")
 
 
 
-def load_responces(filename):
-    csvFile = pd.read_csv(filename, low_memory=False, encoding='ISO-8859-1')
+
+def load_responces(fpath):
+    # csvFile = pd.read_csv(filename, low_memory=False, encoding='ISO-8859-1')
     global nodes
     nodes = set()
-    for i in range(len(csvFile["category"])):
-        nodes.add(Node(csvFile,i))
+    loadedNodes = dm.loadData(fpath)
+    
+    for node in loadedNodes:
+        nodes.add(node)
+
+
+
+    for node in nodes:
+        print(node.name)
 
 
 
@@ -401,40 +323,30 @@ class Session(object):
 
 class Node(object):
     # def __init__(self, name, responce,input_context,output_context):
-    def __init__(self, csvFile, index):
+    def __init__(self, nodeLoadedInfo):
         # csvFile["category"][i], csvFile["reply"][i],
         #                csvFile["input_context"][i],csvFile["output_context"][i]
-        self.name = csvFile["category"][index].strip()
-        self.responce = []
+        self.name = nodeLoadedInfo["classification"]   
+        
         self.numberOfCalls=0
 
-        #[1,2,3,4]
-        #load responces 1-4 into array 
-        for i in range(1,5):
-            responceX = csvFile["reply_{0}".format(i)][index]
-
-            if type(responceX) == str:
-                self.responce.append(responceX.strip())
 
 
-
-        input_context = csvFile["input_context"][index]
-        self.input_context=set()
-        if(type(input_context)==float):
-            input_context="none"
-        for context in input_context.split(','):
-            self.input_context.add(context.strip())
-            
-        output_context = csvFile["output_context"][index]    
-        self.output_context=set()
-        if(type(output_context)==float):
-            output_context="none"
-        for context in output_context.split(','):
-            self.output_context.add(context.strip())  
+        input_context = nodeLoadedInfo["input_context"]
+        output_context = nodeLoadedInfo["input_context"]
 
 
-        self.yes_force = csvFile["yes_force"][index]
-        self.no_force = csvFile["no_force"][index]
+        self.responses = []
+
+        for responce in nodeLoadedInfo["response"]:
+            self.responses.append(Responce(responce))
+
+        
+
+
+
+        # self.yes_force = nodeLoadedInfo["yes_force"]
+        # self.no_force = nodeLoadedInfo["no_force"]
 
 
     # this should indicate if we have gone through them all which it does not right now ********      
@@ -452,6 +364,24 @@ class Node(object):
         return False
             
 #         self.availibleNodes=2 
+
+class Responce(object):
+    def __init__(self, responceLoaded):
+        self.text = responceLoaded["text"]
+        self.input_context = responceLoaded["input_context"]
+        self.output_context = responceLoaded["output_context"]
+
+        self.decisions = set()
+
+        for decision in responceLoaded["decision"]:
+            self.decisions.add(Decision(decision))
+            
+
+class Decision(object):
+    def __init__(self, loadedDecision):
+        self.name = loadedDecision["name"]
+        self.destination = loadedDecision["node"]
+
 
 def getNode(category):
     for node in nodes:
